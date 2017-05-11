@@ -320,7 +320,7 @@
           
             <pre><code>运行时权限的申请：
     首先需要在AndroidManifest.xml文件中申请权限，如:
-&lt;user-permisssion android:name=&quot;android,permission.CALL_PHONE&quot;/&gt;
+&lt;user-permisssion android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;
     若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否
 已经给过权限，通过ContextCompat.checkSelfPermission()方法，ContextCompat.checkSelfPermission()方法有两个
 参数:第一个参数为Context类，这里传入MainActivity.this，第二个参数为具体的权限名，传入Manifest.permission.CALL_PHONE。
