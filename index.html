@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/11/My-New-Post/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/11/程序运行时权限的申请/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -269,7 +269,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/11/My-New-Post/" itemprop="url">使用Android Studio编程程序运行时权限的申请</a></h1>
+                <a class="post-title-link" href="/2017/05/11/程序运行时权限的申请/" itemprop="url">使用Android Studio编程程序运行时权限的申请</a></h1>
         
 
         <div class="post-meta">
@@ -318,8 +318,21 @@
       
         
           
-            <p>运行时权限的申请：<br>    首先需要在AndroidManifest.xml文件中申请权限，如 <user-permisssion android:name="android,permission.CALL_PHONE">。若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否已经给过权限，通过ContextCompat.checkSelfPermission()方法，ContextCompat.checkSelfPermission()方法有两个参数，第一个参数为Context类，这里传入MainActivity.this，第二个参数为具体的权限名，传入Manifest.permission.CALL_PHONE。通过这个方法的返回值与PackageManager.PERMISSION_GRANTED做比较，如果相等就说明用户已授权，反之未授权。若未授权，则需要调用ActivityCompat.requestPermissions()方法向用户申请授权。该方法有3个参数，第一个参数为Activity的实例，第二个参数为一个String数组，把所要申请的权限名称放入该数组即可，第三个参数是请求码，只要为唯一值就可以，这里传入1。调用完ActivityCompat.requestPermission()方法之后，会回调到onRequsetPermission()方法中，而授权的结构则会封装在grantResults参数当中，这是只要我们队grantResults参数进行判断即可。代码如下：</user-permisssion></p>
-<pre><code>if(ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.CALL_PHONE)!=PackageManager.PERSSION_GRANTED){
+            <pre><code>运行时权限的申请：
+    首先需要在AndroidManifest.xml文件中申请权限，如:
+&lt;user-permisssion android:name=&quot;android,permission.CALL_PHONE&quot;/&gt;
+    若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否
+已经给过权限，通过ContextCompat.checkSelfPermission()方法，ContextCompat.checkSelfPermission()方法有两个
+参数:第一个参数为Context类，这里传入MainActivity.this，第二个参数为具体的权限名，传入Manifest.permission.CALL_PHONE。
+通过这个方法的返回值与PackageManager.PERMISSION_GRANTED做比较，如果相等就说明用户已授权，反之未授权。若未
+授权，则需要调用ActivityCompat.requestPermissions()方法向用户申请授权。该方法有3个参数:第一个参数为Activity的实例，
+第二个参数为一个String数组，把所要申请的权限名称放入该数组即可，第三个参数是请求码，只要为唯一值就可以，这里传入1。
+调用完ActivityCompat.requestPermission()方法之后，会回调到onRequsetPermission()方法中，而授权的结构则会封装在
+grantResults参数当中，这时只要我们对grantResults参数进行判断即可。
+    代码如下：
+
+if(ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.CALL_PHONE)!=
+PackageManager.PERSSION_GRANTED){
     ActivityCompat.requestPermissions(MainActiviy.this,String[]{Manifest.permission.CALL_PHONE},1);
     }else{
         //逻辑操作
@@ -385,7 +398,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/10/welcome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -404,7 +417,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/10/hello-world/" itemprop="url">Welcome to my 0 and 1 world</a></h1>
+                <a class="post-title-link" href="/2017/05/10/welcome/" itemprop="url">Welcome to my 0 and 1 world</a></h1>
         
 
         <div class="post-meta">
