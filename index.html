@@ -280,6 +280,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/12/轻量级开源数据库———LitePal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdosonJiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="edsonJiao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/12/轻量级开源数据库———LitePal/" itemprop="url">轻量级开源数据库———LitePal</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T23:40:18+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/常用的开源库/" itemprop="url" rel="index">
+                    <span itemprop="name">常用的开源库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  Litepal简介：Litepal是一款开源的Android数据库框架，它采用对象关系映射（ORM）的模式，并将我们平时开发过程中最常用的数据库<br>功能进行了封装，使我们不用编写SQL语句便能完成建表及增删改查操作。</p>
+<p>  LitePal的使用：<br>//第一步导入jar包：可以去GitHub下载。网址：<a href="https://github.com/LitePalFramework/LitePal" target="_blank" rel="external">https://github.com/LitePalFramework/LitePal</a><br>将复制到libs目录中，然后在build.gradle中添加 compile ‘org.litepal.android:core:1.5.0’(数字为LitePal的版本，可在GitHub中查看)</p>
+<p>//第二步配置litepal.xml：在main目录下新建一个assets的目录，之后在此目录下新建一个litepal.xml的文件，添加如下内容：<br>   &lt;?xml version=”1.0” encoding=”utf-8”?&gt;<br>     <litepal><br>       <dbname value="demo"></dbname>  </litepal></p>
+<pre><code>    &lt;version value=&quot;1&quot; &gt;&lt;/version&gt;  
+
+  &lt;list&gt;  
+      &lt;mapping class=&quot;org.litepal.litepalsample.model.Album&quot;&gt;&lt;/mapping&gt;
+      &lt;mapping class=&quot;org.litepal.litepalsample.model.Song&quot;&gt;&lt;/mapping&gt;
+  &lt;/list&gt;  
+&lt;/litepal&gt;
+
+&lt;dbname&gt; 数据库名字  
+&lt;version&gt; 数据库版本，每次更新数据时，只需将版本+1即可。
+&lt;list&gt; 数据库的映射模型
+&lt;mapping&gt;数据库映射模型的地址（传入完整的路径）
+</code></pre><p>//第三步 litepal的建表：根据对象关系映射模式的理念，每一张表都应该对应一个模型(Model)，建表先要新建一个模型类，新建一个DEST类，<br>DEST类需要继承DataSupport类，以便之后对数据库的查询，增添，更新，删除等操作。在DEST类中添加id等属性（private int id;），并添加<br>get，set方法（快捷键：Alt+Insert）。建立好模型类之后，将其配置到litepal.xml文件中。</p>
+<p>注意：只有private修饰的字段才会被映射到数据库表中，即如果有某一个字段不想映射的话，就设置为public、protected或者default修饰符就可以了。</p>
+<p>//第四步 表的建立： 通过 SQLiteDatabase db= Connector.getDatabase();语句。</p>
+<p>//第五步 litepal的添加：new一个模型类，通过set方法进行数据的添加。</p>
+<p>//第六步 litepal的存储工作：通过save();方法进行储存。（save（）方法有返回值）</p>
+<p>//第七步 litepal的更新、查询、删除等操作:</p>
+<p>更新：new一个模型类，之后通过set方法对所需要更新的属性进行重新赋值，之后通过updateAll（）方法进行更新。<br>updateAll（）方法中指定约束条件。Litepal中提供setToDefault（）方法进行默认值的恢复操作，参数为列名。</p>
+<p>删除：通过DataSupport.deleteAll（）进行操作，第一个参数为指定删除哪张表的数据，如Book.class.后面的参数为约束条件。</p>
+<p>查询：新建一个List集合，将DataSupport.findAll()的返回值赋给它。之后通过循环查询其中的数据。<br>    如：<br>            List<book> books=DataSupport.findAll(Book.class);<br>            for(Book book:books){<br>            //操作逻辑<br>            }<br>其中findAll()方法的参数为指定哪张表的数据，返回值为一个List的集合。</book></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/12/Hexo教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -736,7 +893,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -747,7 +904,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -758,7 +915,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
