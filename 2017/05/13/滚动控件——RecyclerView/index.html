@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="便签1," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,24 @@
 
 
 
-<meta name="description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。">
-<meta name="keywords" content="便签1">
+<meta name="description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo更新博客及命令总结">
-<meta property="og:url" content="edsonJiao.github.io/2017/05/12/Hexo教程/index.html">
+<meta property="og:title" content="滚动控件——RecyclerView(1)">
+<meta property="og:url" content="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。">
-<meta property="og:updated_time" content="2017-05-13T08:24:21.063Z">
+<meta property="og:description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/fruit_item.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/dependencies.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/activity_main.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/FruitAdapter.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/MainActivity.jpg">
+<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/运行效果.jpg">
+<meta property="og:updated_time" content="2017-05-13T10:31:26.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo更新博客及命令总结">
-<meta name="twitter:description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。">
+<meta name="twitter:title" content="滚动控件——RecyclerView(1)">
+<meta name="twitter:description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
+<meta name="twitter:image" content="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg">
 
 
 
@@ -128,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/2017/05/12/Hexo教程/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/"/>
 
 
 
 
 
-  <title>Hexo更新博客及命令总结 | edsonJiao's Blog</title>
+  <title>滚动控件——RecyclerView(1) | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +290,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/12/Hexo教程/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -300,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo更新博客及命令总结</h1>
+          <h1 class="post-title" itemprop="name headline">滚动控件——RecyclerView(1)</h1>
         
 
         <div class="post-meta">
@@ -312,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T14:44:56+08:00">
-                2017-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T16:26:30+08:00">
+                2017-05-13
               </time>
             
 
@@ -335,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo教程/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo教程</span>
+                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android app开发</span>
                   </a>
                 </span>
 
@@ -369,11 +376,13 @@
       
 
       
-        <p>很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了<br>一些时间把更新博客的流程和一些命令的功能进行了总结。<br><a id="more"></a><br>hexo更新博客：<br>首先进入hexo目录下：<br>每次对博客进行操作，最后的步骤一定记住在命令行中输入：1.hexo clean #清除缓存2.hexo g #生成静态网页 3.hexo d #部署到GitHub。<br>在终端执行前可以用hexo s– debug，然后本地访问<a href="http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，" target="_blank" rel="external">http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，</a><br>可以输入hexo server -p 4001操作，将端口临时切换为4001，这时访问http：//localhost：4001,便可进行查看。如果还不行，那就继续切换端口。</p>
-<p>命令总结 ：</p>
-<p>3.1 每次部署的步骤，可按以下三步来进行。<br>$ hexo clean<br>$ hexo generate<br>$ hexo deploy</p>
-<p>3.2 本地调试<br>$ hexo g #生成<br>$ hexo s #启动本地服务，进行文章预览调试<br>浏览器输入<a href="http://localhost:4000/，查看搭建效果。此后的每次变更_config.yml" target="_blank" rel="external">http://localhost:4000/，查看搭建效果。此后的每次变更_config.yml</a> 文件或者新建文件都可以先用此命令调试，<br>尤其是当你想调试新添加的主题时。可以用简化的一条命令：hexo s -g</p>
-<p>3.3 常用命令/复合命令/命令简写<br>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本<br>hexo deploy -g  #生成加部署<br>hexo server -g  #生成加预览<br>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
+        <p>RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。<br><a id="more"></a><br>RecyclerView的使用：以Fruit为例，我们想要实现的效果为：一个列表中显示水果的图片，对应的后面是水果的名称。</p>
+<p>准备一个Fruit类和fruit_item.xml，代码如下：<br><img src="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg" alt="Fruit类" title="Fruit类"><br><img src="/2017/05/13/滚动控件——RecyclerView/fruit_item.jpg" alt="fruit_item.xml" title="fruit_item.xml"><br>首先需要添加依赖关系，在build.gradle的dependencise闭包中添加如下内容：<br><img src="/2017/05/13/滚动控件——RecyclerView/dependencies.jpg" alt="添加依赖关系" title="添加依赖关系"><br>接着修改activity_main.xml中的代码：<br><img src="/2017/05/13/滚动控件——RecyclerView/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>之后点击Sync Now进行同步。由于RecyclerView并不是内置在系统SDK中的，所以要 将完整的包路径写出来。</p>
+<p>接下来要为RecyclerView准备一个适配器，新建一个FruitAdapter类，让其继承自RecyclerView.Adapter,并指定泛型为FruitAdapter.ViewHolder。其中ViewHolder是FruitAdapter的一个内部类。<br>代码如下：<br><img src="/2017/05/13/滚动控件——RecyclerView/FruitAdapter.jpg" alt="FruitAdapter类" title="FruitAdapter类"></p>
+<p>由于FruitAdapter是继承自RecyclerView.Adapter的，那么就必须重写onCreateViewHolder(),onBindViewHolder(),getItemCount()这三个方法。<br>onCreateViewHolder()是用来创建ViewHolder实例的,将fruit_item布局加载进来，然后创建出一个ViewHolder实例，并将加载的函数传入到构造函数中，接着ViewHolder的实例返回。<br>onBindViewHolder()方法是用来对子项的数据数据进行赋值的。<br>getItemCount()方法是用来获取子项个数的，直接返回数据源的长度。</p>
+<p>适配器准备好了以后，修改MainActivity的代码，如图：<br><img src="/2017/05/13/滚动控件——RecyclerView/MainActivity.jpg" alt="MainActivity" title="MainActivity"><br>这里的initFruits()方法是用来初始化水果数据的。</p>
+<p>这样，RecycerView实现ListView的功能就算完成。<br>运行效果如图：<br><img src="/2017/05/13/滚动控件——RecyclerView/运行效果.jpg" alt="运行效果图" title="运行效果图"></p>
+<p>ps：因为我实在懒得去找个各种水果的照片，就用Android本来的图代替了，这不会对我们学习RecyclerView造成影响.</p>
 
       
     </div>
@@ -401,12 +410,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/便签1/" rel="tag"># 便签1</a>
-          
-        </div>
-      
 
       
         
@@ -416,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/11/程序运行时权限的申请/" rel="next" title="使用Android Studio编程程序运行时权限的申请">
-                <i class="fa fa-chevron-left"></i> 使用Android Studio编程程序运行时权限的申请
+              <a href="/2017/05/12/轻量级开源数据库———LitePal/" rel="next" title="轻量级开源数据库———LitePal">
+                <i class="fa fa-chevron-left"></i> 轻量级开源数据库———LitePal
               </a>
             
           </div>
@@ -425,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/12/轻量级开源数据库———LitePal/" rel="prev" title="轻量级开源数据库———LitePal">
-                轻量级开源数据库———LitePal <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

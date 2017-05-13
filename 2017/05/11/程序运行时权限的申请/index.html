@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="运行时权限的申请：     首先需要在AndroidManifest.xml文件中申请权限，如: &amp;lt;user-permisssion android:name=&amp;quot;android.permission.CALL_PHONE&amp;quot;/&amp;gt;     若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否 已经给过权限，通过Conte">
+<meta name="description" content="在我们使用app的时，大多时候因为某些功能的需求，需要获得一些权限，比如当我们使用qq进行视频聊天的时候，我们需要获得摄像头的权限，因此在本文中，我会大体的介绍一些权限的申请是如何操作的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Android Studio编程程序运行时权限的申请">
 <meta property="og:url" content="edsonJiao.github.io/2017/05/11/程序运行时权限的申请/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="运行时权限的申请：     首先需要在AndroidManifest.xml文件中申请权限，如: &amp;lt;user-permisssion android:name=&amp;quot;android.permission.CALL_PHONE&amp;quot;/&amp;gt;     若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否 已经给过权限，通过Conte">
-<meta property="og:updated_time" content="2017-05-12T06:50:19.625Z">
+<meta property="og:description" content="在我们使用app的时，大多时候因为某些功能的需求，需要获得一些权限，比如当我们使用qq进行视频聊天的时候，我们需要获得摄像头的权限，因此在本文中，我会大体的介绍一些权限的申请是如何操作的。">
+<meta property="og:updated_time" content="2017-05-13T08:19:03.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Android Studio编程程序运行时权限的申请">
-<meta name="twitter:description" content="运行时权限的申请：     首先需要在AndroidManifest.xml文件中申请权限，如: &amp;lt;user-permisssion android:name=&amp;quot;android.permission.CALL_PHONE&amp;quot;/&amp;gt;     若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否 已经给过权限，通过Conte">
+<meta name="twitter:description" content="在我们使用app的时，大多时候因为某些功能的需求，需要获得一些权限，比如当我们使用qq进行视频聊天的时候，我们需要获得摄像头的权限，因此在本文中，我会大体的介绍一些权限的申请是如何操作的。">
 
 
 
@@ -368,20 +368,8 @@
       
 
       
-        <pre><code>运行时权限的申请：
-    首先需要在AndroidManifest.xml文件中申请权限，如:
-&lt;user-permisssion android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;
-    若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否
-已经给过权限，通过ContextCompat.checkSelfPermission()方法，ContextCompat.checkSelfPermission()方法有两个
-参数:第一个参数为Context类，这里传入MainActivity.this，第二个参数为具体的权限名，传入Manifest.permission.CALL_PHONE。
-通过这个方法的返回值与PackageManager.PERMISSION_GRANTED做比较，如果相等就说明用户已授权，反之未授权。若未
-授权，则需要调用ActivityCompat.requestPermissions()方法向用户申请授权。该方法有3个参数:第一个参数为Activity的实例，
-第二个参数为一个String数组，把所要申请的权限名称放入该数组即可，第三个参数是请求码，只要为唯一值就可以，这里传入1。
-调用完ActivityCompat.requestPermission()方法之后，会回调到onRequsetPermission()方法中，而授权的结构则会封装在
-grantResults参数当中，这时只要我们对grantResults参数进行判断即可。
-    代码如下：
-
-if(ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.CALL_PHONE)!=
+        <p>在我们使用app的时，大多时候因为某些功能的需求，需要获得一些权限，比如当我们使用qq进行视频聊天的时候，我们需要获得摄像头的权限，<br>因此在本文中，我会大体的介绍一些权限的申请是如何操作的。<br><a id="more"></a><br>    运行时权限的申请：<br>        首先需要在AndroidManifest.xml文件中申请权限，如:<br>    <user-permisssion android:name="android.permission.CALL_PHONE"><br>        若是普通权限，则权限的申请已经完成，若是危险权限，则还必须进行运行时权限处理。通过if语句判断用户是否<br>    已经给过权限，通过ContextCompat.checkSelfPermission()方法，ContextCompat.checkSelfPermission()方法有两个<br>    参数:第一个参数为Context类，这里传入MainActivity.this，第二个参数为具体的权限名，传入Manifest.permission.CALL_PHONE。<br>    通过这个方法的返回值与PackageManager.PERMISSION_GRANTED做比较，如果相等就说明用户已授权，反之未授权。若未<br>    授权，则需要调用ActivityCompat.requestPermissions()方法向用户申请授权。该方法有3个参数:第一个参数为Activity的实例，<br>    第二个参数为一个String数组，把所要申请的权限名称放入该数组即可，第三个参数是请求码，只要为唯一值就可以，这里传入1。<br>    调用完ActivityCompat.requestPermission()方法之后，会回调到onRequsetPermission()方法中，而授权的结构则会封装在<br>    grantResults参数当中，这时只要我们对grantResults参数进行判断即可。<br>        代码如下：</user-permisssion></p>
+<pre><code>if(ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.CALL_PHONE)!=
 PackageManager.PERSSION_GRANTED){
     ActivityCompat.requestPermissions(MainActiviy.this,String[]{Manifest.permission.CALL_PHONE},1);
     }else{
@@ -516,7 +504,7 @@ public void onRequestPermissionsResult(int requestCode,String[] permissions,int[
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
