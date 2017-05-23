@@ -90,12 +90,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="edsonJiao&#39;s Blog">
-<meta property="og:url" content="edsonJiao.github.io/archives/page/2/index.html">
+<meta name="description" content="在很多app中都有调用摄像头的功能，接下来就是实现这个功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调用摄像头拍照">
+<meta property="og:url" content="edsonJiao.github.io/2017/05/23/调用摄像头拍照/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
+<meta property="og:description" content="在很多app中都有调用摄像头的功能，接下来就是实现这个功能。">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/activity_main.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/MainActivity.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/path.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/AndroidManifest.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/运行效果1.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/运行效果2.jpg">
+<meta property="og:image" content="/2017/05/23/调用摄像头拍照/运行效果3.jpg">
+<meta property="og:updated_time" content="2017-05-23T14:12:34.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="edsonJiao&#39;s Blog">
+<meta name="twitter:title" content="调用摄像头拍照">
+<meta name="twitter:description" content="在很多app中都有调用摄像头的功能，接下来就是实现这个功能。">
+<meta name="twitter:image" content="/2017/05/23/调用摄像头拍照/activity_main.jpg">
 
 
 
@@ -123,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/archives/page/2/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/05/23/调用摄像头拍照/"/>
 
 
 
 
 
-  <title>归档 | edsonJiao's Blog</title>
+  <title>调用摄像头拍照 | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,144 +270,168 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 13 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/23/调用摄像头拍照/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdosonJiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="edsonJiao's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">调用摄像头拍照</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T19:51:24+08:00">
+                2017-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android app开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
+
+      
+        <p>在很多app中都有调用摄像头的功能，接下来就是实现这个功能。<br><a id="more"></a><br>1.新建一个活动，修改activity_main.xml，代码如下：<br><img src="/2017/05/23/调用摄像头拍照/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>其中做一个take_photo的按钮，还有一个叫picture的ImageView用来将所拍的照片展示出来。</p>
+<p>2.修改MainActivity的代码:<br><img src="/2017/05/23/调用摄像头拍照/MainActivity.jpg" alt="MainActivity.java" title="MainActivity.java"><br>大体思路：新建一个outputSream的File类用来保存所拍的图片，其中getExternCacheDir()方法表示获得手机SD卡的应用关联缓存目录，Android 6.0之后读写SD卡变为危险权限，需要程序运行时权限申请，而应用关联缓存目录不需要。图片存储在outpuStream之后，通过if判断Android系统的版本。若是7.0版本及以上，就调用FileProvider类的getUriForFile()方法将outputSream转化成封装过Uri类赋值给imageUri，其中getUriForFile()方法接收3个参数，第一个参数为，Context类直接传入MainActivit。this即可，第二个参数为任意并且唯一的字符串，第三个参数为File类，传入outputStream。否则，就直接直接将File类即outputStream转化成Uri对象。这是因为在Android7.0之后，使用本地真实的Uri路径被认为不安全，会抛出FileUriExposedException异常。使用FileProvider这种特殊的内容提供器，可以对数据进行保护，对真实的Uri路径进行封装再共享给外部。接着新建Intent类，并将action指定为android.media.action.IMAGE_CAPTURE，并通关putExtra指定图片的输出地址，将imagUri传入，最后通过startActivityForResult方法启动活动。由于我们使用startActivityForResult方法启动活动，那需要重写onActivityResult()方法,当拍照成功就通过BitmapFactory类的decodeStream()将output_picture.jpg解码成Bitmap类，最终通过设置ImageView显示出来。</p>
+<p>3.在res目录下新建一个存放.xml文件的目录，新建path.xml，修改代码：<br><img src="/2017/05/23/调用摄像头拍照/path.jpg" alt="path.xml" title="path.xml"><br>其中external-path用来指定Uri共享的，name可以随便填，path表示共享的具体路径，空值表示共享整个SD卡。</p>
+<p>4.修改AnroidManifest.xml代码，注册内容提供器，并对访问SD卡应用关联目录进行权限申请:<br><img src="/2017/05/23/调用摄像头拍照/AndroidManifest.jpg" alt="AndroidManifest.xml" title="AndroidManifest.xml"><br>android:name 属性为固定值，android:authorities属性的值需要与MainActivity.java中的FileProvider类的getUriForFile()方法的第二个参数一样，meta-data标签指定共享路径。在Android 4.4之前，访问SD卡应用关联目录需要进行权限的申请，4.4之后就不需要了，但为了兼容老版本，我们还是需要对权限进行申请。</p>
+<p>5.运行效果<br><img src="/2017/05/23/调用摄像头拍照/运行效果1.jpg" alt="运行效果1" title="运行效果1"><br><img src="/2017/05/23/调用摄像头拍照/运行效果2.jpg" alt="运行效果2" title="运行效果2"><br><img src="/2017/05/23/调用摄像头拍照/运行效果3.jpg" alt="运行效果3" title="运行效果3"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
       
 
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/21/浅谈活动/" rel="next" title="浅谈活动">
+                <i class="fa fa-chevron-left"></i> 浅谈活动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/12/Hexo教程/" itemprop="url">
-              
-                <span itemprop="name">Hexo更新博客及命令总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T14:44:56+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/11/程序运行时权限的申请/" itemprop="url">
-              
-                <span itemprop="name">使用Android Studio编程程序运行时权限的申请</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-11T17:09:21+08:00"
-              content="2017-05-11" >
-          05-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/10/welcome/" itemprop="url">
-              
-                <span itemprop="name">Welcome to my 0 and 1 world</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T19:41:52+08:00"
-              content="2017-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -403,6 +439,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -627,11 +667,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
