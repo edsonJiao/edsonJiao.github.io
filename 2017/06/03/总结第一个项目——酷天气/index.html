@@ -1,0 +1,759 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://tonnyl.github.io/img/logo.png?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="用了三天时间，终于自己亲手开发出一款属于自己的app——酷天气。虽然功能比较单一，而且思路主要借鉴于《第一行代码》。本想着在360商城上线的，没想到因为包名的问题无法上线。这篇博客主要是为了对开发流程就行总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="总结第一个项目——酷天气">
+<meta property="og:url" content="edsonJiao.github.io/2017/06/03/总结第一个项目——酷天气/index.html">
+<meta property="og:site_name" content="edsonJiao&#39;s Blog">
+<meta property="og:description" content="用了三天时间，终于自己亲手开发出一款属于自己的app——酷天气。虽然功能比较单一，而且思路主要借鉴于《第一行代码》。本想着在360商城上线的，没想到因为包名的问题无法上线。这篇博客主要是为了对开发流程就行总结。">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/JOSN格式.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/整体架构.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/库依赖.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Province.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/City.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/County.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/litepal.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/AndroidManifest.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/HttpUtil.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/choose_area.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/ChooseAreaFragment.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/activity_main.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/styles.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/AQI.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Suggestion.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Basic.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Forecast.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/AutoUpdateService.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/string.jpg">
+<meta property="og:updated_time" content="2017-06-04T06:48:08.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="总结第一个项目——酷天气">
+<meta name="twitter:description" content="用了三天时间，终于自己亲手开发出一款属于自己的app——酷天气。虽然功能比较单一，而且思路主要借鉴于《第一行代码》。本想着在360商城上线的，没想到因为包名的问题无法上线。这篇博客主要是为了对开发流程就行总结。">
+<meta name="twitter:image" content="/2017/06/03/总结第一个项目——酷天气/JOSN格式.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="edsonJiao.github.io/2017/06/03/总结第一个项目——酷天气/"/>
+
+
+
+
+
+  <title>总结第一个项目——酷天气 | edsonJiao's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">edsonJiao's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我挥舞着键盘和本子，发誓把世界写个明明白白。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/06/03/总结第一个项目——酷天气/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdosonJiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="edsonJiao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">总结第一个项目——酷天气</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T20:33:36+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android app开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>用了三天时间，终于自己亲手开发出一款属于自己的app——酷天气。虽然功能比较单一，而且思路主要借鉴于《第一行代码》。本想着在360商城上线的，没想到因为包名的问题无法上线。这篇博客主要是为了对开发流程就行总结。<br><a id="more"></a><br>大体思路：<br>        功能需求-可行性分析-选择合适的UI-工具准备-整体架构-实体类的准备-详情页的编写-发布并开源</p>
+<p>功能需求：<br>    酷天气是一款播报天气的app，所以所需要的功能包括：1.遍历省市县 2.加载省市县的天气情况 3.自动更新。</p>
+<p>可行性分析：<br>加载省市县的天气情况的数据从哪里获得?感谢郭霖大神分析了和风天气的API，网址：<a href="http://guolin.tech/api/china" target="_blank" rel="external">http://guolin.tech/api/china</a>,<br>打开网址，服务器会返回一段JSON格式的数据，其中包含中国所有的省市名称以及省份id，如图所示：<br><img src="/2017/06/03/总结第一个项目——酷天气/JOSN格式.jpg" alt="省市的JSON格式" title="省市的JSON格式"><br>想要查看省内的城市，只需在网址后面加入省份的id即可，查看市内的县与之类似。打开县或区，会发现每一个县或区后面都有一个weather_id，拿着这个id再去访问和风天气的接口就能获取到天气信息。<br>和风天气接口的使用需要注册，注册完之后用账号登陆就能看到自己的API Key。有了API Key接口和weather_id即可查看城市的天气信息，如查看苏州的天气，只要访问：<a href="http://guolin.tech/api/weather?cityid=CN101190401&amp;KEY=XXXXXXXXX。" target="_blank" rel="external">http://guolin.tech/api/weather?cityid=CN101190401&amp;KEY=XXXXXXXXX。</a> XXXXXXXXX表示你的Api Key。</p>
+<p>工具准备：<br>1.Android Studio 2.Android手机 3.Git</p>
+<p>选择合适的UI：<br>由于功能比较单一，页面也无需太丰富，本着极简主义的理念，页面没有进行太多的装饰，只是为天气信息增加了背景，背景是用郭霖所提供的分析之后的Bing的接口，地址：<a href="http://guolin.tech/api/bing_pic" target="_blank" rel="external">http://guolin.tech/api/bing_pic</a>.</p>
+<p>项目结构图：<br><img src="/2017/06/03/总结第一个项目——酷天气/整体架构.jpg" alt="项目结构图" title="项目结构图"><br>其中asset包用来存放LitePal的布局文件，db包用来存放数据库模型相关的代码，gson包用来存放GSON模型相关的代码，service包用来存放服务相关的代码，util类用来存放工具相关的代码。</p>
+<p>添加库依赖：<br>编辑app/build.gradle文件，修改dependencies闭包，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/库依赖.jpg" alt="build.gradle" title="build.gradle"><br>其中添加了4个库，LitePal用于对数据库进行操作，OkHttp用于进行网络请求，GSON用于解析JSON数据，Glide用于加载和展示图片。</p>
+<p>设计数据库表结构：<br>创建省市县三级的实体类，在db包中创建Province、City和County三个实体类，代码如下:<br><img src="/2017/06/03/总结第一个项目——酷天气/Province.jpg" alt="Province.java" title="Province.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/City.jpg" alt="City.java" title="City.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/County.jpg" alt="County.java" title="County.java"><br>实体类准备好之后，修改已经穿件的assets目录中的litepal.xml文件为三个实体类添加对应关系，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/litepal.jpg" alt="litepal.xml" title="litepal.xml"><br>通过以上代码，便为Province City County三个实体类添加了映射关系。接着配置LitePalApplication文件，修改AndroidManifest.xml文件，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AndroidManifest.jpg" alt="AndroidManifest.xml" title="AndroidManifest.xml"><br>添加name属性，name属性中的内容是固定的。</p>
+<p>增加遍历省市县数据的功能：<br>由于省市县的数据都是从服务器中获得的，所以在util包中创建一个HttpUtil类，用于和服务器进行交互，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/HttpUtil.jpg" alt="HttpUtil.java" title="HttpUtil.java"><br>通过sendOkHttpRequest()方法，传入请求地址，并注册一个回调来处理服务器响应即可。<br>由于服务器返回的数据是JSON格式的，所以还需在util创建一个Uitlity类，用来处理和解析JSON格式的数据，代码如下：<br><br>在Utility类中，提供了三个方法，handleProvincesResponse() handleCityResponse() handleCountyResponse() 分别对省市县的数据进行处理和解析。</p>
+<p>引用碎片：<br>由于遍历省市县的功能在后面还会用到，所以就不将它写入活动中，而是写入碎片，新建一个choose_area布局文件，修改代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/choose_area.jpg" alt="choose_area.xml" title="choose_area.xml"></p>
+<p>编写遍历省市县数据的碎片：<br>新建ChooseAreaFragment继承自Fragment，修改代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/ChooseAreaFragment.jpg" alt="ChooseAreaFragment.java" title="ChooseAreaFragment.java"><br>在onCreateView()中获取各种控件，初始化了ArrayAdapter，并将它设置为ListView的适配器。然后在onActivityCreated()方法中为ListView和Button设置了点击事件。初始化工作就完成了。<br>由于碎片不能在页面上直接显示，需要将它添加在活动中。修改activ_main.xml文件，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>接着修改style.xml文件，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/styles.jpg" alt="styles.xml" title="styles.xml"><br>最后在AndroidManifest.xml中添加访问网络权限即可。</p>
+<p>定义GSON实体类：<br>由于之前服务器返回JSON类型数据中天气数据的大致格式中包含 status、basic、aqi、now、suggestion、daily_forecast五个部分所以将这五个部分定义为五个实体类。<br>代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AQI.jpg" alt="AQI.java" title="AQI.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Suggestion.jpg" alt="Suggestion.java" title="Suggestion.java"><br><br><img src="/2017/06/03/总结第一个项目——酷天气/Basic.jpg" alt="Basic.java" title="Basic.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Forecast.jpg" alt="Forecast.java" title="Forecast.java"></p>
+<p>编写天气界面：<br>创建WeatherActivity活动，设置布局文件名称为activity_weather.xml,创建title.xml作为头布局，创建now.xml用于当前天气信息的布局，forecast.xml作为未来几天天气的布局，forecast_item作为未来天气的子项布局，aqi.xml作为空气质量的布局 ，suggest.xml作为 生活建议的布局。<br>最终将这些布局文件引入activity_weather.xml中即可。</p>
+<p>将天气信息显示到界面上：<br>在Utile中添加一个解析天气JSON格式数据的方法。然后在活动中请求天气数据，并展示到界面上，修改WeatherActivity代码：<br><br>最后修改ChooseAreaFram中的逻辑，添加页面切换的逻辑即可。</p>
+<p>加载Bing每日一图 ：<br>首先修改activity_weather.xml中的代码在，在其中添加ImageView控件用于展示Bing每日一图的图片，接着修改WeatherActivity的代码，为ImageView初始化，并添加加载每日一图的方法。</p>
+<p>手动更新和切换城市：<br>修改activity_weather.xml，加入SwipeRefreshLayout控件，使其用有下拉刷新功能，接着修改WeatherActivity的代码 ，添加下拉刷新的功能。<br>切换城市：增添一个Butoon按钮，并将背景设置为准备好的图片，然后在WeatherActivity中增加互动菜单的逻辑。</p>
+<p>自动更新：<br>在service包中新建一个AutoUpdateService，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AutoUpdateService.jpg" alt="AutoUpdateService" title="AutoUpdateService"><br>其中将自动更新时间设置为1小时更新一次</p>
+<p>修改图标和名称：<br>修改AndroidManifest.xml的代码，将icon属性更改为准备好的图标，然后修改res/values/string.xml 代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/string.jpg" alt="string.xml" title="string.xml"></p>
+<p>开源:<br>我是将项目发布在Github上，地址：<a href="https://github.com/edsonJiao/CoolWeather" target="_blank" rel="external">https://github.com/edsonJiao/CoolWeather</a><br>希望大家给个Fork！！！</p>
+<p>app上线:<br>注册一个360开发者 ，然后上传即可，在这之前要生成apk文件。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/31/Android开发常用的代码/" rel="next" title="Android开发常用的代码">
+                <i class="fa fa-chevron-left"></i> Android开发常用的代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg"
+               alt="EdosonJiao" />
+          <p class="site-author-name" itemprop="name">EdosonJiao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/edsonJiao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jiao-ke-qing-12/activities" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/jiao.keqing" target="_blank" title="FaceBook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  FaceBook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EdosonJiao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
