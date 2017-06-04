@@ -111,11 +111,13 @@
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/styles.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/AQI.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Suggestion.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Now.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Basic.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/Forecast.jpg">
+<meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/WeatherActivity.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/AutoUpdateService.jpg">
 <meta property="og:image" content="/2017/06/03/总结第一个项目——酷天气/string.jpg">
-<meta property="og:updated_time" content="2017-06-04T06:48:08.358Z">
+<meta property="og:updated_time" content="2017-06-04T07:05:59.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="总结第一个项目——酷天气">
 <meta name="twitter:description" content="用了三天时间，终于自己亲手开发出一款属于自己的app——酷天气。虽然功能比较单一，而且思路主要借鉴于《第一行代码》。本想着在360商城上线的，没想到因为包名的问题无法上线。这篇博客主要是为了对开发流程就行总结。">
@@ -389,9 +391,9 @@
 <p>增加遍历省市县数据的功能：<br>由于省市县的数据都是从服务器中获得的，所以在util包中创建一个HttpUtil类，用于和服务器进行交互，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/HttpUtil.jpg" alt="HttpUtil.java" title="HttpUtil.java"><br>通过sendOkHttpRequest()方法，传入请求地址，并注册一个回调来处理服务器响应即可。<br>由于服务器返回的数据是JSON格式的，所以还需在util创建一个Uitlity类，用来处理和解析JSON格式的数据，代码如下：<br><br>在Utility类中，提供了三个方法，handleProvincesResponse() handleCityResponse() handleCountyResponse() 分别对省市县的数据进行处理和解析。</p>
 <p>引用碎片：<br>由于遍历省市县的功能在后面还会用到，所以就不将它写入活动中，而是写入碎片，新建一个choose_area布局文件，修改代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/choose_area.jpg" alt="choose_area.xml" title="choose_area.xml"></p>
 <p>编写遍历省市县数据的碎片：<br>新建ChooseAreaFragment继承自Fragment，修改代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/ChooseAreaFragment.jpg" alt="ChooseAreaFragment.java" title="ChooseAreaFragment.java"><br>在onCreateView()中获取各种控件，初始化了ArrayAdapter，并将它设置为ListView的适配器。然后在onActivityCreated()方法中为ListView和Button设置了点击事件。初始化工作就完成了。<br>由于碎片不能在页面上直接显示，需要将它添加在活动中。修改activ_main.xml文件，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>接着修改style.xml文件，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/styles.jpg" alt="styles.xml" title="styles.xml"><br>最后在AndroidManifest.xml中添加访问网络权限即可。</p>
-<p>定义GSON实体类：<br>由于之前服务器返回JSON类型数据中天气数据的大致格式中包含 status、basic、aqi、now、suggestion、daily_forecast五个部分所以将这五个部分定义为五个实体类。<br>代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AQI.jpg" alt="AQI.java" title="AQI.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Suggestion.jpg" alt="Suggestion.java" title="Suggestion.java"><br><br><img src="/2017/06/03/总结第一个项目——酷天气/Basic.jpg" alt="Basic.java" title="Basic.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Forecast.jpg" alt="Forecast.java" title="Forecast.java"></p>
+<p>定义GSON实体类：<br>由于之前服务器返回JSON类型数据中天气数据的大致格式中包含 status、basic、aqi、now、suggestion、daily_forecast五个部分所以将这五个部分定义为五个实体类。<br>代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AQI.jpg" alt="AQI.java" title="AQI.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Suggestion.jpg" alt="Suggestion.java" title="Suggestion.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Now.jpg" alt="Now.java" title="Now.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Basic.jpg" alt="Basic.java" title="Basic.java"><br><img src="/2017/06/03/总结第一个项目——酷天气/Forecast.jpg" alt="Forecast.java" title="Forecast.java"></p>
 <p>编写天气界面：<br>创建WeatherActivity活动，设置布局文件名称为activity_weather.xml,创建title.xml作为头布局，创建now.xml用于当前天气信息的布局，forecast.xml作为未来几天天气的布局，forecast_item作为未来天气的子项布局，aqi.xml作为空气质量的布局 ，suggest.xml作为 生活建议的布局。<br>最终将这些布局文件引入activity_weather.xml中即可。</p>
-<p>将天气信息显示到界面上：<br>在Utile中添加一个解析天气JSON格式数据的方法。然后在活动中请求天气数据，并展示到界面上，修改WeatherActivity代码：<br><br>最后修改ChooseAreaFram中的逻辑，添加页面切换的逻辑即可。</p>
+<p>将天气信息显示到界面上：<br>在Utile中添加一个解析天气JSON格式数据的方法。然后在活动中请求天气数据，并展示到界面上，修改WeatherActivity代码：<br><img src="/2017/06/03/总结第一个项目——酷天气/WeatherActivity.jpg" alt="WeatherActivity.java" title="WeatherActivity.java"><br>最后修改ChooseAreaFram中的逻辑，添加页面切换的逻辑即可。</p>
 <p>加载Bing每日一图 ：<br>首先修改activity_weather.xml中的代码在，在其中添加ImageView控件用于展示Bing每日一图的图片，接着修改WeatherActivity的代码，为ImageView初始化，并添加加载每日一图的方法。</p>
 <p>手动更新和切换城市：<br>修改activity_weather.xml，加入SwipeRefreshLayout控件，使其用有下拉刷新功能，接着修改WeatherActivity的代码 ，添加下拉刷新的功能。<br>切换城市：增添一个Butoon按钮，并将背景设置为准备好的图片，然后在WeatherActivity中增加互动菜单的逻辑。</p>
 <p>自动更新：<br>在service包中新建一个AutoUpdateService，代码如下：<br><img src="/2017/06/03/总结第一个项目——酷天气/AutoUpdateService.jpg" alt="AutoUpdateService" title="AutoUpdateService"><br>其中将自动更新时间设置为1小时更新一次</p>
