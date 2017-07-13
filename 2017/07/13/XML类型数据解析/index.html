@@ -90,12 +90,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="edsonJiao&#39;s Blog">
-<meta property="og:url" content="edsonJiao.github.io/categories/常用的开源库/index.html">
+<meta name="description" content="XML数据类型解析常常会用到两种方式，一种是Pull解析方式，另一种是SAX解析方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML类型数据解析">
+<meta property="og:url" content="edsonJiao.github.io/2017/07/13/XML类型数据解析/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
+<meta property="og:description" content="XML数据类型解析常常会用到两种方式，一种是Pull解析方式，另一种是SAX解析方式。">
+<meta property="og:image" content="/2017/07/13/XML类型数据解析/Pull解析.jpg">
+<meta property="og:image" content="/2017/07/13/XML类型数据解析/DefaultHandle的子类.jpg">
+<meta property="og:image" content="/2017/07/13/XML类型数据解析/SAX解析.jpg">
+<meta property="og:updated_time" content="2017-07-13T06:36:05.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="edsonJiao&#39;s Blog">
+<meta name="twitter:title" content="XML类型数据解析">
+<meta name="twitter:description" content="XML数据类型解析常常会用到两种方式，一种是Pull解析方式，另一种是SAX解析方式。">
+<meta name="twitter:image" content="/2017/07/13/XML类型数据解析/Pull解析.jpg">
 
 
 
@@ -123,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/categories/常用的开源库/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/07/13/XML类型数据解析/"/>
 
 
 
 
 
-  <title>分类: 常用的开源库 | edsonJiao's Blog</title>
+  <title>XML类型数据解析 | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,45 +266,180 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>常用的开源库<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/12/轻量级开源数据库———LitePal/" itemprop="url">
-              
-                <span itemprop="name">轻量级开源数据库———LitePal</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T23:40:18+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/07/13/XML类型数据解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EdosonJiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="edsonJiao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">XML类型数据解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T14:32:10+08:00">
+                2017-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android app开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>XML数据类型解析常常会用到两种方式，一种是Pull解析方式，另一种是SAX解析方式。<br><a id="more"></a><br>Pull解析方式：<br>通过创建XmlPullParseFactory对象，借助这个对象创建XmlPullParse对象，之后调用XmlPullParse对象的setInput()方法，将服务器返回的XML类型的输入传入即可。<br>XmlPullParseFactory factory=XmlPullParseFactory.newInstance();<br>XmlPullParse xmlPullParse=factory.newPullParse();<br>xmlPullParse.setInput(XML类型数据);<br>解析过程：<br>通过getEvenType()方法得到当前解析的时间，然后在一个while循环中进行不断解析，若当前解析的事件不等于XmlPullParse.END_DOCUMENT，说明还未解析完，通过next()方法获取下一个解析事件。<br>在while循环中通过getName()方法获取节点的名字，跟我们创建的名字进行比较，若相等，通关调用nextText()方法来获取节点的具体内容。<br>int evenType=xmlPullParse.getEvenType();<br>while(evenType!=XmlPullParse.END_DOCUMENT){<br>    String noteName=xmlPullParse.getName();<br>    switch(evenType){<br>        case XmlPullParse.START_TAG:{<br>            if(“id”.equals(noteName)){<br>            id=xmlPullParse.nextText();<br>            }<br>        }<br>        break;<br>        default:<br>            break;<br>    }<br>    evenType=xmlPullParse.next();<br>}<br><img src="/2017/07/13/XML类型数据解析/Pull解析.jpg" alt="Pull解析" title="Pull解析"><br>SAX解析方式:<br>SAX解析需要新建一个类继承自DefaultHandle类，并重写5个方法，startDocument()方法在XML开始解析的时候调用，startElement()方法在开始解析某个节点时调用,characters()在获取节点的具体内容时调用,endElement()在完成解析某个节点时调用,endDocument()在完成XML解析时调用。<br>其中startElement()、characters()、endElement()方法有参数。其中character()方法可以调用多次。<br>public class MYHandle extends  DefaultHandle{<br>    @Override<br>    public void startDocument() throws SAXException{<br>    }</p>
+<pre><code>@Override
+public void startElement(String uri,String localName,String qName,Attributes attributes)throws SAXException{
+}
+
+@Override
+public void characters(char[] chars,int start,int length)throws SAXException{
+}
+
+@Override
+public void endElement(String uri,String localName,String qName)throws SAXException{
+}
+
+@Override
+public void endDocument() throws SAXException{
+}
+</code></pre><p>}<br><img src="/2017/07/13/XML类型数据解析/DefaultHandle的子类.jpg" alt="DefaultHandle的子类" title="DefaultHandle的子类"><br>创建完类之后，进行解析时候，需要先创建一个SAXParseFactory对象，通过这个对象创建一个XMLReaderd对象，同时创建一个你创建的类的对象，并通过调用XMLReader对象的setContentHandle()方法将所创建的类的对象传入，最终调用XMLReader对象的parse()方法将所要解析的数据传入即可。<br>SAXParseFactory factory=SAXParseFactory.newInstance();<br>XMLReader xmlReader=factory.newSAXparse().getXMLReader();<br>MYHandle myHandle=new MYHandle();<br>xmlReader.setContentHandle(myHandle);<br>xmlReader.parse(所要解析的数据);<br><img src="/2017/07/13/XML类型数据解析/SAX解析.jpg" alt="SAX解析" title="SAX解析"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/12/HttpURLConnection和OkHttp的使用/" rel="next" title="HttpURLConnection和OkHttp的使用">
+                <i class="fa fa-chevron-left"></i> HttpURLConnection和OkHttp的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -304,6 +447,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -528,6 +675,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
