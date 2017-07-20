@@ -96,7 +96,7 @@
 <meta property="og:url" content="edsonJiao.github.io/2017/07/12/HttpURLConnection和OkHttp的使用/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
 <meta property="og:description" content="很多app都涉及到使用HTTP协议访问网络，接下来就介绍几种Android上发送HTTP请求的方法。">
-<meta property="og:updated_time" content="2017-07-12T06:24:58.111Z">
+<meta property="og:updated_time" content="2017-07-20T00:51:11.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HttpURLConnection和OkHttp的使用">
 <meta name="twitter:description" content="很多app都涉及到使用HTTP协议访问网络，接下来就介绍几种Android上发送HTTP请求的方法。">
@@ -366,7 +366,7 @@
 <p>若HTTP请求方式为POST的话，需要在获取输入流之前把要提交的数据写入。每条数据已键值对的形式存在，数据之前用&amp;隔开。<br>connection.setRequestMethod(POST”);<br>DataOutputStream out=new DataOutputStream(connection.getOutputStream);<br>out.writeBytes(“username=admin&amp;password=123456”);</p>
 <p>最终通过调用disconnect()方法将HTTP连接关闭。<br>connection.disconnect();</p>
 <p>OkHttp的用法：<br>OkHttp目前已经成为开发者首选的网络通信库。项目地址：<a href="https://github.com/square/okhttp" target="_blank" rel="external">https://github.com/square/okhttp</a></p>
-<p>首先需要在app/build.gradle中添加库依赖：<br>compile ‘com.square.okhttp3:okhttp:3.8.1’   版本号可以自己去官网查。</p>
+<p>首先需要在app/build.gradle中添加库依赖：<br>compile ‘com.squareup.okhttp3:okhttp:3.8.1’   版本号可以自己去官网查。</p>
 <p>首先new一个OkHttpClient对象，如要发送HTTP请求就需要创建一个Request对象并通过url()方法设置网址。<br>OkHttpClient client=new OkHttpClient();<br>Request request=new Request.Builder().url(“<a href="https://www.baidu.com&quot;).build(" target="_blank" rel="external">https://www.baidu.com&quot;).build(</a>);</p>
 <p>之后调用OkHttpClient的newCall()方法创建一个Call对象，并 调用call对象的execute()方法向服务器发送请求并获取到服务器返回的数据。<br>Response response=client.newCall(request).execute();</p>
 <p>Response对象就是服务器返回的数据,通过body()方法可以获取到返回的具体内容。<br>String responseData=response.body().toString();</p>
