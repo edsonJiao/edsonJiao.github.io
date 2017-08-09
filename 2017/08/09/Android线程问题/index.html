@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
+<meta name="description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本上对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android线程问题">
 <meta property="og:url" content="edsonJiao.github.io/2017/08/09/Android线程问题/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
+<meta property="og:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本上对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
 <meta property="og:image" content="/2017/08/09/Android线程问题/Debug.jpg">
 <meta property="og:image" content="/2017/08/09/Android线程问题/知乎问题.jpg">
-<meta property="og:updated_time" content="2017-08-09T15:25:58.544Z">
+<meta property="og:updated_time" content="2017-08-09T15:28:48.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android线程问题">
-<meta name="twitter:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
+<meta name="twitter:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本上对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
 <meta name="twitter:image" content="/2017/08/09/Android线程问题/Debug.jpg">
 
 
@@ -361,7 +361,7 @@
       
 
       
-        <p>最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。<br><a id="more"></a><br>1&gt;首先要搞清楚Android中什么是主线程，什么是子线程<br>主线程即UI线程是进行UI操作的线程，主线程只有一个。子线程是进行一些耗时操作，比如：网络请求、I/O操作等，因为如果将这些耗时操作放在主线程中可能会导致主线程阻塞 从而出现ANR现象。从Android4.0开始，网络请求必须在子线程中进行，佛则会抛出NetWorkOnMainThreadExcept的异常。</p>
+        <p>最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本上对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。<br><a id="more"></a><br>1&gt;首先要搞清楚Android中什么是主线程，什么是子线程<br>主线程即UI线程是进行UI操作的线程，主线程只有一个。子线程是进行一些耗时操作，比如：网络请求、I/O操作等，因为如果将这些耗时操作放在主线程中可能会导致主线程阻塞 从而出现ANR现象。从Android4.0开始，网络请求必须在子线程中进行，佛则会抛出NetWorkOnMainThreadExcept的异常。</p>
 <p>2&gt;为什么会出现ANR现象？<br>Android希望UI线程能根据用户的要求迅速做出响应，如果UI线程花费太多时间处理后台工作，当UI事件发生时，让用户等待5秒而未进行响应，Android系统就会给用户显示ANG信息。UI线程中不仅需要进行UI操作，还要处理Broadcast的消息，所以BroadcastReceiver的onReceive()方法不宜占用太长时间，当让用户等待10s时，<br>Andorid系统便会显示ANG信息。</p>
 <p>3&gt;Android到底有没有main()方法？<br>我刚接触Android的时候，一直听说Android是支持java语言的，但是我写了这么长时间以来从来没有在Android中看到过main()方法,我都怀疑Android中到底有没有main()方法。答案是有的。Android的main()方法被包装在源码的ActivityThread类中。<br>public static final void main(String[] args) {<br>        SamplingProfilerIntegration.start();</p>
 <pre><code>    Process.setArgV0(&quot;&lt;pre-initialized&gt;&quot;);
