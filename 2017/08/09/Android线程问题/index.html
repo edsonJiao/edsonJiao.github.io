@@ -90,24 +90,19 @@
 
 
 
-<meta name="description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
+<meta name="description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="滚动控件——RecyclerView(1)">
-<meta property="og:url" content="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/index.html">
+<meta property="og:title" content="Android线程问题">
+<meta property="og:url" content="edsonJiao.github.io/2017/08/09/Android线程问题/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/fruit_item.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/dependencies.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/activity_main.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/FruitAdapter.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/MainActivity.jpg">
-<meta property="og:image" content="/2017/05/13/滚动控件——RecyclerView/运行效果.jpg">
-<meta property="og:updated_time" content="2017-05-13T12:24:15.247Z">
+<meta property="og:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
+<meta property="og:image" content="/2017/08/09/Android线程问题/Debug.jpg">
+<meta property="og:image" content="/2017/08/09/Android线程问题/知乎问题.jpg">
+<meta property="og:updated_time" content="2017-08-09T15:25:58.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="滚动控件——RecyclerView(1)">
-<meta name="twitter:description" content="RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。">
-<meta name="twitter:image" content="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg">
+<meta name="twitter:title" content="Android线程问题">
+<meta name="twitter:description" content="最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。">
+<meta name="twitter:image" content="/2017/08/09/Android线程问题/Debug.jpg">
 
 
 
@@ -135,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/08/09/Android线程问题/"/>
 
 
 
 
 
-  <title>滚动控件——RecyclerView(1) | edsonJiao's Blog</title>
+  <title>Android线程问题 | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/13/滚动控件——RecyclerView/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/08/09/Android线程问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -297,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">滚动控件——RecyclerView(1)</h1>
+          <h1 class="post-title" itemprop="name headline">Android线程问题</h1>
         
 
         <div class="post-meta">
@@ -309,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T16:26:30+08:00">
-                2017-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T20:54:49+08:00">
+                2017-08-09
               </time>
             
 
@@ -366,13 +361,61 @@
       
 
       
-        <p>RecyclerView这个控件是非常常用的一个控件，日常生活中我们也经常会使用，比如说查看qq聊天记录，翻看微博的消息。并且RecyclerView还可以轻松实现ListView同样的效果，并且优化了ListView不能横向滑动等弊端，可以说，未来也会有更多的程序，从ListView转向RecyclerView。在本篇文章中会看到如何用RecyclerView做出和ListView相同的功能。<br><a id="more"></a><br>RecyclerView的使用：以Fruit为例，我们想要实现的效果为：一个列表中显示水果的图片，对应的后面是水果的名称。</p>
-<p>准备一个Fruit类和fruit_item.xml，代码如下：<br><img src="/2017/05/13/滚动控件——RecyclerView/Fruit.jpg" alt="Fruit类" title="Fruit类"><br><img src="/2017/05/13/滚动控件——RecyclerView/fruit_item.jpg" alt="fruit_item.xml" title="fruit_item.xml"><br>首先需要添加依赖关系，在build.gradle的dependencise闭包中添加如下内容：<br><img src="/2017/05/13/滚动控件——RecyclerView/dependencies.jpg" alt="添加依赖关系" title="添加依赖关系"><br>接着修改activity_main.xml中的代码：<br><img src="/2017/05/13/滚动控件——RecyclerView/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>之后点击Sync Now进行同步。由于RecyclerView并不是内置在系统SDK中的，所以要 将完整的包路径写出来。</p>
-<p>接下来要为RecyclerView准备一个适配器，新建一个FruitAdapter类，让其继承自RecyclerView.Adapter,并指定泛型为FruitAdapter.ViewHolder。其中ViewHolder是FruitAdapter的一个内部类。<br>代码如下：<br><img src="/2017/05/13/滚动控件——RecyclerView/FruitAdapter.jpg" alt="FruitAdapter类" title="FruitAdapter类"></p>
-<p>由于FruitAdapter是继承自RecyclerView.Adapter的，那么就必须重写onCreateViewHolder(),onBindViewHolder(),getItemCount()这三个方法。<br>onCreateViewHolder()是用来创建ViewHolder实例的,将fruit_item布局加载进来，然后创建出一个ViewHolder实例，并将加载的函数传入到构造函数中，接着ViewHolder的实例返回。<br>onBindViewHolder()方法是用来对子项的数据数据进行赋值的。<br>getItemCount()方法是用来获取子项个数的，直接返回数据源的长度。</p>
-<p>适配器准备好了以后，修改MainActivity的代码，如图：<br><img src="/2017/05/13/滚动控件——RecyclerView/MainActivity.jpg" alt="MainActivity" title="MainActivity"><br>这里的initFruits()方法是用来初始化水果数据的。</p>
-<p>这样，RecycerView实现ListView的功能就算完成。<br>运行效果如图：<br><img src="/2017/05/13/滚动控件——RecyclerView/运行效果.jpg" alt="运行效果图" title="运行效果图"></p>
-<p>ps：因为我实在懒得去找个各种水果的照片，就用Android本来的图代替了，这不会对我们学习RecyclerView造成影响.</p>
+        <p>最近写代码的时候，由于对Android线程问题不了解，总是会报错。虽然学过一点Android的异步消息处理机制，但是因为没有从根本想对Android线程问题进行了解，所以在开发过程中总是会出现一些不应该的错误。因此我花了一些时间查看书籍跟博客，还看了一些源码，对了解Android线程问题有了一些认识。<br><a id="more"></a><br>1&gt;首先要搞清楚Android中什么是主线程，什么是子线程<br>主线程即UI线程是进行UI操作的线程，主线程只有一个。子线程是进行一些耗时操作，比如：网络请求、I/O操作等，因为如果将这些耗时操作放在主线程中可能会导致主线程阻塞 从而出现ANR现象。从Android4.0开始，网络请求必须在子线程中进行，佛则会抛出NetWorkOnMainThreadExcept的异常。</p>
+<p>2&gt;为什么会出现ANR现象？<br>Android希望UI线程能根据用户的要求迅速做出响应，如果UI线程花费太多时间处理后台工作，当UI事件发生时，让用户等待5秒而未进行响应，Android系统就会给用户显示ANG信息。UI线程中不仅需要进行UI操作，还要处理Broadcast的消息，所以BroadcastReceiver的onReceive()方法不宜占用太长时间，当让用户等待10s时，<br>Andorid系统便会显示ANG信息。</p>
+<p>3&gt;Android到底有没有main()方法？<br>我刚接触Android的时候，一直听说Android是支持java语言的，但是我写了这么长时间以来从来没有在Android中看到过main()方法,我都怀疑Android中到底有没有main()方法。答案是有的。Android的main()方法被包装在源码的ActivityThread类中。<br>public static final void main(String[] args) {<br>        SamplingProfilerIntegration.start();</p>
+<pre><code>    Process.setArgV0(&quot;&lt;pre-initialized&gt;&quot;);
+
+    Looper.prepareMainLooper();
+    if (sMainThreadHandler == null) {
+        sMainThreadHandler = new Handler();
+    }
+
+    ActivityThread thread = new ActivityThread();
+    thread.attach(false);
+
+    if (false) {
+        Looper.myLooper().setMessageLogging(new
+                LogPrinter(Log.DEBUG, &quot;ActivityThread&quot;));
+    }
+
+    Looper.loop();
+
+    if (Process.supportsProcesses()) {
+        throw new RuntimeException(&quot;Main thread loop unexpectedly exited&quot;);
+    }
+
+    thread.detach();
+    String name = (thread.mInitialApplication != null)
+        ? thread.mInitialApplication.getPackageName()
+        : &quot;&lt;unknown&gt;&quot;;
+    Slog.i(TAG, &quot;Main thread of &quot; + name + &quot; is now exiting&quot;);
+}
+</code></pre><p>}<br>这便是包装在源码ActivityThread类中的Android的main()函数。ActivityThread为应用程序的主线程类。一个APK文件中只有一个ActivityThread类，ActivityThread所在的线程就是主线程(UI线程)。<br>Activity从main()方法开始执行，先调用perpareMain()方法为主线程创建出一个消息队列(Message Queue)，接着创建一个ActivityThread的对象，并在ActivityThread初始化代码中创建一个Handler对象和一个ApplicationThread(Binder)对象。其中Binder对象负责接收<br>远程AmS的IPC调用，接收到调用后，通过Handler将消息发送到消息队列(Message Queue)中,UI主线程会异步地从消息队列中取出消息进行相应的操作，比如start，pause，stop等，接着通过Looper.loop()方法进入消息循环体进入后就会不断的从消息队列中取出并处理消息。</p>
+<p>4&gt;子线程如何开启？<br>子线程的开启有两种方法：一个是继承Thread类重写run方法，想要开启线程时调用start()方法就行。<br>        class MyThread extends Thread{<br>            @Override<br>            public void run(){<br>                //此处为耗时操作的逻辑代码<br>            }<br>        }</p>
+<pre><code>new MyThread().start();       //开启子线程
+</code></pre><p>另一个方法是实现Runnable接口，重写run()方法。<br>        class MyRunnable implements Runnable{<br>            @Override<br>            public void run(){<br>            //此处为耗时操作的逻辑代码<br>            }<br>        }</p>
+<pre><code>new MyRunnable().start();    //开启子线程
+</code></pre><p>5&gt;Android APK中都有哪些进程？<br><img src="/2017/08/09/Android线程问题/Debug.jpg" alt="debug" title="debug"><br>其中蓝色部位为主线程，在这个程序中还有3个Binder对象，每个Binder对象都对应一个线程，这些线程主要负责接收Linux Binder驱动发送的IPC调用。除此之外还有Java的守护线程和垃圾回收线程堆裁剪守护线程在运行。</p>
+<p>6&gt;程序中UI线程跟自定义的Thread线程有什么区别？<br>UI线程在是从ActivityThread中运行的，在该类的main()方法中早就调用了Looper.perpareMainLooper()方法创建出一个Looper对象，即为该线程创建了消息队列(因为消息队列是在Looper中)。因此可以直接在活动中定义Handler对象(因为声明Handler必须所在的线程已经创建出了MessageQueue)，而自定义Thread，是一个裸线程，不能在其中<br>定义Handler对象。从使用场景来说，即不能直接给Thread对象发消息，可以直接给UI线程发消息。</p>
+<p>7&gt;子线程为什么不能更新UI?<br>因为UI访问是没有加锁的，多个线程UI访问是不安全的，如果多个线程进行更新UI,会导致界面混乱不堪。</p>
+<p>8&gt;Android中存在一个唯一的控件可以在子线程中进行UI更新。<br>这个控件是SurfaceView，它可以在主线程之外的线程让屏幕绘图，这样可以解除画图任务繁重导致的主线程阻塞。当需要快速主动的更新UI时，或者是当前渲染代码阻塞GUI线程时，SuifaceView就是一个最佳选择。</p>
+<p>9&gt;这个问题是我在知乎上看到的<br><img src="/2017/08/09/Android线程问题/知乎问题.jpg" alt="知乎问题" title="知乎问题"><br>这个问题定不能说明UI更新可以不再子线程中进行，这个问题的原因是线程的检查是用ViewRoot的，而ViewRoot的创建是在onResume()之后，而问题中的子线程是在onCreate()时候，这个时候系统本身分辨不出哪一个是主线程哪一个是子线程。</p>
+<p>10&gt;子线程如何与主线程进行通信。<br> 1.Activity.runOnUiThread(Runnable)<br> 2.View.post(Runnable)<br> 3.View.postDelayed(Runnable,long)<br> 4.Handler(子线程调用Handler的handle.sendMessage(msg);<br> 5.AsyncTask<br> 主线程：<br>    aTask ak = new aTask();<br>    ak.execute();<br> 继承AsyncTask<br>    private class aTask extends AsyncTask { </p>
+<pre><code>//后台线程执行时 
+@Override 
+protected Object doInBackground(Object... params) { 
+    // 耗时操作             
+    return loadNetWork(); 
+} 
+//后台线程执行结束后的操作，其中参数result为doInBackground返回的结果 
+@Override 
+protected void onPostExecute(Object result) { 
+    super.onPostExecute(result); 
+    mTextView.setText(result); 
+} 
+} 
+</code></pre><p>总结：<br>一个应用程序只有一个主线程，主线程的开启是ActivityThread中的main()方法，主线程实际是一个死循环（源码中为for(;;)的死循环），不断处理系统以及其他子线程发送的消息。主线程的绑定是在DecorView创建以后，即onResume()以后。主线程进行UI，当在主线程进行耗时操作导致阻塞，或者BroadcastReceiver的onReceive()方法处理超过10s时，系统就会像用户显示ANR。所以耗时操作一般放入子线程中进行处理。</p>
 
       
     </div>
@@ -409,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/12/轻量级开源数据库———LitePal/" rel="next" title="轻量级开源数据库———LitePal">
-                <i class="fa fa-chevron-left"></i> 轻量级开源数据库———LitePal
+              <a href="/2017/07/17/异步消息处理机制/" rel="next" title="Android异步消息处理机制">
+                <i class="fa fa-chevron-left"></i> Android异步消息处理机制
               </a>
             
           </div>
@@ -418,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/滚动控件——RecyclerView-2/" rel="prev" title="滚动控件——RecyclerView(2)">
-                滚动控件——RecyclerView(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
