@@ -96,7 +96,7 @@
 <meta property="og:url" content="edsonJiao.github.io/2017/09/02/XML解析方式/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
 <meta property="og:description" content="XML是一种非常常见的数据存储方式，有四种解析方式，DOM、SAX、JDOM、DOM4J四种解析方式。其中DOM、SAX是Java中自带的，JDOM、DOM4J需要添加jar包。接着就是对这四种XML文件解析方式进行总结。">
-<meta property="og:updated_time" content="2017-09-02T06:50:20.496Z">
+<meta property="og:updated_time" content="2017-09-02T07:03:48.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XML解析方式">
 <meta name="twitter:description" content="XML是一种非常常见的数据存储方式，有四种解析方式，DOM、SAX、JDOM、DOM4J四种解析方式。其中DOM、SAX是Java中自带的，JDOM、DOM4J需要添加jar包。接着就是对这四种XML文件解析方式进行总结。">
@@ -358,8 +358,7 @@
       
 
       
-        <p>XML是一种非常常见的数据存储方式，有四种解析方式，DOM、SAX、JDOM、DOM4J四种解析方式。其中DOM、SAX是Java中自带的，JDOM、DOM4J需要添加jar包。<br>接着就是对这四种XML文件解析方式进行总结。<br><a id="more"></a><br>一、前期准备：<br>    对xml文件解析当然需要有xml的文件。自己写一个<br>    &lt;?xml version=”1.0” encoding=”UTF-8”&gt;<br>    <bookstore><br>        <book id="1"><br>            <name>冰与火之歌</name><br>            <author>保罗马丁</author><br>            <price>121</price><br>        </book><br>        <book id="2"><br>            <name>薛定谔之猫</name><br>            <price>66</price><br>        </book><br>    </bookstore></p>
-<p>二、XML解析<br>    为了方便起见，我讲XML解析写成了一个工具类，分别对应四个解析的方法。<br>    1.SAX:<br>    /**</p>
+        <p>XML是一种非常常见的数据存储方式，有四种解析方式，DOM、SAX、JDOM、DOM4J四种解析方式。其中DOM、SAX是Java中自带的，JDOM、DOM4J需要添加jar包。<br>接着就是对这四种XML文件解析方式进行总结。<br><a id="more"></a><br>XML解析<br>    为了方便起见，我讲XML解析写成了一个工具类，分别对应四个解析的方法。<br>    1.SAX:<br>    /**</p>
 <pre><code> * 通过SAX方法对XML文件进行解析
  * 基于事件驱动的一种解析方式
  * 优点：
