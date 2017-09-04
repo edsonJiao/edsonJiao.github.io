@@ -90,23 +90,16 @@
 
 
 
-<meta name="description" content="Intent是各大组件进行交互的方法之一，既可以在Activity中指点想要完成的动作，也可以通过Intent实现活动之间数据的传递。">
+<meta name="description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Intent启动活动">
-<meta property="og:url" content="edsonJiao.github.io/2017/06/09/使用Intent启动活动/index.html">
+<meta property="og:title" content="XML文件生成">
+<meta property="og:url" content="edsonJiao.github.io/2017/09/04/XML文件生成/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="Intent是各大组件进行交互的方法之一，既可以在Activity中指点想要完成的动作，也可以通过Intent实现活动之间数据的传递。">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/MainActivity.jpg">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/activity_main.jpg">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/运行效果1.jpg">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/运行效果2.jpg">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/配置action和category.jpg">
-<meta property="og:image" content="/2017/06/09/使用Intent启动活动/匹配.jpg">
-<meta property="og:updated_time" content="2017-06-09T12:37:15.434Z">
+<meta property="og:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
+<meta property="og:updated_time" content="2017-09-04T06:06:33.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Intent启动活动">
-<meta name="twitter:description" content="Intent是各大组件进行交互的方法之一，既可以在Activity中指点想要完成的动作，也可以通过Intent实现活动之间数据的传递。">
-<meta name="twitter:image" content="/2017/06/09/使用Intent启动活动/MainActivity.jpg">
+<meta name="twitter:title" content="XML文件生成">
+<meta name="twitter:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
 
 
 
@@ -134,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/2017/06/09/使用Intent启动活动/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/09/04/XML文件生成/"/>
 
 
 
 
 
-  <title>使用Intent启动活动 | edsonJiao's Blog</title>
+  <title>XML文件生成 | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/06/09/使用Intent启动活动/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/09/04/XML文件生成/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -296,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Intent启动活动</h1>
+          <h1 class="post-title" itemprop="name headline">XML文件生成</h1>
         
 
         <div class="post-meta">
@@ -308,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T17:06:23+08:00">
-                2017-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T11:21:12+08:00">
+                2017-09-04
               </time>
             
 
@@ -331,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android app开发</span>
+                  <a href="/categories/Java学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习笔记</span>
                   </a>
                 </span>
 
@@ -365,9 +358,10 @@
       
 
       
-        <p>Intent是各大组件进行交互的方法之一，既可以在Activity中指点想要完成的动作，也可以通过Intent实现活动之间数据的传递。<br><a id="more"></a><br>Intent分为显式Intent与隐式Intent。</p>
-<p>显式Intent的使用：<br>创建Intent对象：<br>Intent intent=new Intent();<br>Intent有多个构造函数的重载，因此，参数就会有很多种，里面的参数可以是android系统内置的动作，也可以用来启动活动，第一个参数为Context类，是一个启动活动的上下文，一般为目前的活动，第二个参数为将要启动的目标活动。<br>创建Intent对象之后，可以通过startActivity()方法启动活动，参数为Intent。<br>为了更好的理解 ，我编写了一个登录的页面来进行演示：<br><img src="/2017/06/09/使用Intent启动活动/MainActivity.jpg" alt="MainActivity" title="MainActivity"><br><img src="/2017/06/09/使用Intent启动活动/activity_main.jpg" alt="activity_main.xml" title="activity_main.xml"><br>通过创建按钮，注册点击事件，核对account和password，登录。登录时，SecondActivity活动的启动就是通过Intent。<br>运行效果：<br><img src="/2017/06/09/使用Intent启动活动/运行效果1.jpg" alt="登录界面" title="登录界面"><br><img src="/2017/06/09/使用Intent启动活动/运行效果2.jpg" alt="登录之后的界面" title="登录之后的界面"></p>
-<p>隐式Intent的使用：<br>相比于显式Intent的简单粗暴，隐式Intent需要配置一些东西了，在Inter-filter闭包中配置action和category，只能有几一个action，category可以为多个。配置完action与category之后，创建Intent对象时，将action作为参数传入Intent中，并使用addCategory()方法传入配置的category，最后通过startActivity()方法启动活动即可。注意：当配置了多个category时,必须将这多个category都进行配对才可以 。<br>代码如下：<br><img src="/2017/06/09/使用Intent启动活动/配置action和category.jpg" alt="配置action和category" title="配置action和category"><br><img src="/2017/06/09/使用Intent启动活动/匹配.jpg" alt="匹配" title="匹配"><br>其中android.intent.category.DEFAULT为系统默认的category，在进行匹配时可以省略不写，但，若有多个category时,需要在Manifest.xml列出默认的category.</p>
+        <p>之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。<br><a id="more"></a><br>一、DOM<br>使用DOM生成XML文件的方法前几步与解析XML文件是相同的。<br>1.DocumentBuilderFactory–&gt;DocumentBuilder–&gt;Document<br>2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())<br>3.通过父节点的appendChild方法将子节点插入<br>4.通过Document的appendChild()方法将根节点插入。<br>5.TransformerFactory–&gt;Transformer<br>6.通过Transformer的setOutputProperty()方法设置编码跟换行问题<br>7.创建DOMSource对象与document关联起来<br>8.创建StreamResult对象设置输出流输出的XML文件位置<br>9.通过Transformer的transform()方法进行生成</p>
+<p>二、SAX<br>1.SAXTransFormerFactory–&gt;TransformerHandler–&gt;Transformer<br>2.通过Transformer设置编码换行等问题<br>3.通过TransformerHandler设置解析的文件<br>4.通过TransformerHandler的startDocument()方法开始<br>5.创建AttributeImpl对象 设置属性值<br>6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加<br>7.通过TransformerHandler的endDocument() 完成</p>
+<p>三、JOM<br>1.创建根节点Element.<br>2.创建Document.<br>3.创建子节点Element<br>4.通过addContent方法对子节点的属性和内容进行设置<br>5.调通父节点的addContent方法将子节点插入。<br>6.创建Format对象<br>7.创建XMLOutput对象<br>8.设置XMLOutput对象的Format值<br>9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</p>
+<p>四、DOM4J<br>1.创建Document对象<br>2.创建根节点Element 并为根节点设置属性<br>3.通过根节点创建子节点Element 并设置属性和内容<br>4.创建XMLWriter对象通过write()方法将Document传入<br>5.关闭XMLWriter</p>
 
       
     </div>
@@ -404,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/03/总结第一个项目——酷天气/" rel="next" title="总结第一个项目——酷天气">
-                <i class="fa fa-chevron-left"></i> 总结第一个项目——酷天气
+              <a href="/2017/09/02/XML解析方式/" rel="next" title="XML解析方式">
+                <i class="fa fa-chevron-left"></i> XML解析方式
               </a>
             
           </div>
@@ -413,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/11/碎片的使用/" rel="prev" title="碎片的使用">
-                碎片的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
