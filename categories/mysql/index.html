@@ -90,18 +90,12 @@
 
 
 
-<meta name="description" content="如果想要实现跨程序共享数据的功能，官方建议使用内容提供器，接下来就是内容提供器的用法。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="内容提供器">
-<meta property="og:url" content="edsonJiao.github.io/2017/05/14/内容提供器/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="edsonJiao&#39;s Blog">
+<meta property="og:url" content="edsonJiao.github.io/categories/mysql/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="如果想要实现跨程序共享数据的功能，官方建议使用内容提供器，接下来就是内容提供器的用法。">
-<meta property="og:image" content="/2017/05/14/内容提供器/MyProvider.jpg">
-<meta property="og:updated_time" content="2017-05-14T14:10:46.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内容提供器">
-<meta name="twitter:description" content="如果想要实现跨程序共享数据的功能，官方建议使用内容提供器，接下来就是内容提供器的用法。">
-<meta name="twitter:image" content="/2017/05/14/内容提供器/MyProvider.jpg">
+<meta name="twitter:title" content="edsonJiao&#39;s Blog">
 
 
 
@@ -129,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/2017/05/14/内容提供器/"/>
+  <link rel="canonical" href="edsonJiao.github.io/categories/mysql/"/>
 
 
 
 
 
-  <title>内容提供器 | edsonJiao's Blog</title>
+  <title>分类: mysql | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,169 +258,45 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/05/14/内容提供器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EdosonJiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="edsonJiao's Blog">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>mysql<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">内容提供器</h1>
-        
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/09/06/mysql学习总结-1/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">mysql学习总结[1]</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T21:06:58+08:00">
-                2017-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-app开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android app开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>如果想要实现跨程序共享数据的功能，官方建议使用内容提供器，接下来就是内容提供器的用法。<br><a id="more"></a><br>在这之前，先了解一下URI的写法：<br>协议声明+authority+path<br>例如：<br>content://com.example.app.provider/table1<br>其中authority为com.example.app.provider<br>path为table1<br>以上URI是表示访问table1里面的所有数据，而我们还可以在后面加上id，例如，content://com.example.app.provider/table1/1 表示访问table1中id为1的数据。<br>可以在id部分使用*,表示匹配任意长度的任意字符，使用#，表示匹配任意长度的数字。</p>
-<p>接着回到主题，开始我们的内容提供器的学习。<br>首先自己创建一个内容提供器，让其继承自ContentProvider，并重写onCreate(),query(),upData(),delete(),insert(),getType()六个方法。<br>代码如下：<br><img src="/2017/05/14/内容提供器/MyProvider.jpg" alt="MyProvider" title="MyProvider"><br>onCreate()方法在内容提供器初始化时被调用，在这里通常完成对数据库的创建、升级等操作。这样当ContentResolver尝试访问我们程序中的数据时，内容提供器才会被初始化。<br>qury()方法用来查询数据，使用uri参数来指定查询哪一张表，projection表示查询哪些列，selection和selectionArgs用来约束查询哪些行，sortOrder用来指定排序的方式。最后以Cursor的方式返回。<br>upData()方法用来更新数据，使用uri参数来指定查询哪一张表，将新的数据保存在values参数中，projection约束更新哪些列，selection和selectionArgs用来约束更新哪些行，返回值为更新的行数。<br>delete()方法用来删除数据，uri参数指定哪一张表，selection和selectionArgs约束删除哪些行，返回值为删除的行数。<br>getType()方法根据出入的URI返回相应的MIME类型。<br>内容提供器用法的基本思路就这么多，接下来就是实践了。</p>
-
-      
-    </div>
-
-    <div>
-      
+            </a>
         
+      </h2>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-09-06T09:31:38+08:00"
+              content="2017-09-06" >
+          09-06
+        </time>
+      </div>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/05/13/滚动控件——RecyclerView-2/" rel="next" title="滚动控件——RecyclerView(2)">
-                <i class="fa fa-chevron-left"></i> 滚动控件——RecyclerView(2)
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/16/类的拓展/" rel="prev" title="类的拓展">
-                类的拓展 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -434,10 +304,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -662,10 +528,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
 
   
 

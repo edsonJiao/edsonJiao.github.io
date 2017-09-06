@@ -96,7 +96,7 @@
 <meta property="og:url" content="edsonJiao.github.io/2017/09/04/XML文件生成/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
 <meta property="og:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
-<meta property="og:updated_time" content="2017-09-04T06:06:33.795Z">
+<meta property="og:updated_time" content="2017-09-06T01:38:20.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XML文件生成">
 <meta name="twitter:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
@@ -358,11 +358,18 @@
       
 
       
-        <p>之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。<br><a id="more"></a><br>一、DOM<br>使用DOM生成XML文件的方法前几步与解析XML文件是相同的。<br>1.DocumentBuilderFactory–&gt;DocumentBuilder–&gt;Document<br>2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())<br>3.通过父节点的appendChild方法将子节点插入<br>4.通过Document的appendChild()方法将根节点插入。<br>5.TransformerFactory–&gt;Transformer<br>6.通过Transformer的setOutputProperty()方法设置编码跟换行问题<br>7.创建DOMSource对象与document关联起来<br>8.创建StreamResult对象设置输出流输出的XML文件位置<br>9.通过Transformer的transform()方法进行生成</p>
-<p>二、SAX<br>1.SAXTransFormerFactory–&gt;TransformerHandler–&gt;Transformer<br>2.通过Transformer设置编码换行等问题<br>3.通过TransformerHandler设置解析的文件<br>4.通过TransformerHandler的startDocument()方法开始<br>5.创建AttributeImpl对象 设置属性值<br>6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加<br>7.通过TransformerHandler的endDocument() 完成</p>
-<p>三、JOM<br>1.创建根节点Element.<br>2.创建Document.<br>3.创建子节点Element<br>4.通过addContent方法对子节点的属性和内容进行设置<br>5.调通父节点的addContent方法将子节点插入。<br>6.创建Format对象<br>7.创建XMLOutput对象<br>8.设置XMLOutput对象的Format值<br>9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</p>
-<p>四、DOM4J<br>1.创建Document对象<br>2.创建根节点Element 并为根节点设置属性<br>3.通过根节点创建子节点Element 并设置属性和内容<br>4.创建XMLWriter对象通过write()方法将Document传入<br>5.关闭XMLWriter</p>
+        <p>之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。<br><a id="more"></a></p>
+<p></p><h2>一、DOM</h2><p></p>
+<h4>使用DOM生成XML文件的方法前几步与解析XML文件是相同的。<br>1.DocumentBuilderFactory–&gt;DocumentBuilder–&gt;Document<br>2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())<br>3.通过父节点的appendChild方法将子节点插入<br>4.通过Document的appendChild()方法将根节点插入。<br>5.TransformerFactory–&gt;Transformer<br>6.通过Transformer的setOutputProperty()方法设置编码跟换行问题<br>7.创建DOMSource对象与document关联起来<br>8.创建StreamResult对象设置输出流输出的XML文件位置<br>9.通过Transformer的transform()方法进行生成</h4>
 
+<p></p><h2>二、SAX</h2><p></p>
+<h4>1.SAXTransFormerFactory–&gt;TransformerHandler–&gt;Transformer<br>2.通过Transformer设置编码换行等问题<br>3.通过TransformerHandler设置解析的文件<br>4.通过TransformerHandler的startDocument()方法开始<br>5.创建AttributeImpl对象 设置属性值<br>6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加<br>7.通过TransformerHandler的endDocument() 完成</h4>
+
+<p></p><h2>三、JOM</h2><p></p>
+<h4>1.创建根节点Element.<br>2.创建Document.<br>3.创建子节点Element<br>4.通过addContent方法对子节点的属性和内容进行设置<br>5.调通父节点的addContent方法将子节点插入。<br>6.创建Format对象<br>7.创建XMLOutput对象<br>8.设置XMLOutput对象的Format值<br>9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</h4>
+
+<p></p><h2>四、DOM4J</h2><p></p>
+<h4>1.创建Document对象<br>2.创建根节点Element 并为根节点设置属性<br>3.通过根节点创建子节点Element 并设置属性和内容<br>4.创建XMLWriter对象通过write()方法将Document传入<br>5.关闭XMLWriter</h4>
       
     </div>
 
@@ -407,6 +414,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/06/mysql学习总结-1/" rel="prev" title="mysql学习总结[1]">
+                mysql学习总结[1] <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -453,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://a3.att.hudong.com/06/74/20300001024098143589743902345_s.jpg"
@@ -469,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -480,7 +500,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -545,6 +565,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">一、DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用DOM生成XML文件的方法前几步与解析XML文件是相同的。1.DocumentBuilderFactory–>DocumentBuilder–>Document2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())3.通过父节点的appendChild方法将子节点插入4.通过Document的appendChild()方法将根节点插入。5.TransformerFactory–>Transformer6.通过Transformer的setOutputProperty()方法设置编码跟换行问题7.创建DOMSource对象与document关联起来8.创建StreamResult对象设置输出流输出的XML文件位置9.通过Transformer的transform()方法进行生成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">二、SAX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.SAXTransFormerFactory–>TransformerHandler–>Transformer2.通过Transformer设置编码换行等问题3.通过TransformerHandler设置解析的文件4.通过TransformerHandler的startDocument()方法开始5.创建AttributeImpl对象 设置属性值6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加7.通过TransformerHandler的endDocument() 完成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">三、JOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.创建根节点Element.2.创建Document.3.创建子节点Element4.通过addContent方法对子节点的属性和内容进行设置5.调通父节点的addContent方法将子节点插入。6.创建Format对象7.创建XMLOutput对象8.设置XMLOutput对象的Format值9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">四、DOM4J</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.创建Document对象2.创建根节点Element 并为根节点设置属性3.通过根节点创建子节点Element 并设置属性和内容4.创建XMLWriter对象通过write()方法将Document传入5.关闭XMLWriter</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
