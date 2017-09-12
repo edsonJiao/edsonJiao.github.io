@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
+<meta name="description" content="最近刷题的时候总会碰到各种关于基本数据类型的装箱和拆箱的问题，今天决定做一个总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XML文件生成">
-<meta property="og:url" content="edsonJiao.github.io/2017/09/04/XML文件生成/index.html">
+<meta property="og:title" content="Java拆箱与装箱">
+<meta property="og:url" content="edsonJiao.github.io/2017/09/12/Java拆箱与装箱/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
-<meta property="og:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
-<meta property="og:updated_time" content="2017-09-06T01:38:20.138Z">
+<meta property="og:description" content="最近刷题的时候总会碰到各种关于基本数据类型的装箱和拆箱的问题，今天决定做一个总结。">
+<meta property="og:updated_time" content="2017-09-12T10:07:05.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XML文件生成">
-<meta name="twitter:description" content="之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。">
+<meta name="twitter:title" content="Java拆箱与装箱">
+<meta name="twitter:description" content="最近刷题的时候总会碰到各种关于基本数据类型的装箱和拆箱的问题，今天决定做一个总结。">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="edsonJiao.github.io/2017/09/04/XML文件生成/"/>
+  <link rel="canonical" href="edsonJiao.github.io/2017/09/12/Java拆箱与装箱/"/>
 
 
 
 
 
-  <title>XML文件生成 | edsonJiao's Blog</title>
+  <title>Java拆箱与装箱 | edsonJiao's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/09/04/XML文件生成/">
+    <link itemprop="mainEntityOfPage" href="edsonJiao.github.io/2017/09/12/Java拆箱与装箱/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EdosonJiao">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">XML文件生成</h1>
+          <h1 class="post-title" itemprop="name headline">Java拆箱与装箱</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T11:21:12+08:00">
-                2017-09-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T16:32:58+08:00">
+                2017-09-12
               </time>
             
 
@@ -358,18 +358,22 @@
       
 
       
-        <p>之前总结过XML的四种解析方式：DOM、SAX、JDOM、DOM4J。对应的生成XML文件也是这四种方式。<br><a id="more"></a></p>
-<p></p><h2>一、DOM</h2><p></p>
-<h4>使用DOM生成XML文件的方法前几步与解析XML文件是相同的。<br>1.DocumentBuilderFactory–&gt;DocumentBuilder–&gt;Document<br>2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())<br>3.通过父节点的appendChild方法将子节点插入<br>4.通过Document的appendChild()方法将根节点插入。<br>5.TransformerFactory–&gt;Transformer<br>6.通过Transformer的setOutputProperty()方法设置编码跟换行问题<br>7.创建DOMSource对象与document关联起来<br>8.创建StreamResult对象设置输出流输出的XML文件位置<br>9.通过Transformer的transform()方法进行生成</h4>
+        <p>最近刷题的时候总会碰到各种关于基本数据类型的装箱和拆箱的问题，今天决定做一个总结。<br><a id="more"></a></p>
+<p></p><h2>Java的包装类</h2><p></p>
+<p><br>Java是面向对象的一门语言，然而Java中的基本数据类型却不是面向对象的，这使得在实际的使用这种会存在很多不便，为了弥补这一不足，Java在设计类的时候为每个基本数据类型都设置了一个类，这八个为基本数据类型设计的类就算包装类。<br><br>基本数据类型        大小            包装类<br>boolean                /                Boolean<br>byte                8bit/1个字节    Byte<br>short                16bit/2个字节    Short<br>int                    32bit/4个字节    Integer<br>long                64bit/8个字节    Long<br>float                32bit/4个字节    Float<br>double                64bit/8个字节    Double<br>char                16bit/2个字节    Character<br>void                /                Void<br><br>包装类的作用：<br>1.提供了一种机制，使得基本数据类型也是面向对象的，从而是基本数据类型能够包含在为对象而保留的操作中，如添加到Collections中，或者从带对象返回值的方法中返回。在java5中增加了自动拆箱和装箱的功能。<br>2.为基本数据类型提供了分类的功能，这些功能大多数与各种转换有关，如：在基本值和String对象间相互转换，在基本值和String对象之间按不同基数转换，如二进制、八进制和十六进制。<br><br>包装类的共同方法：<br>1.带有基本值参数并创建包装类对象的构造函数。如利用Integer包装类创建对象，Integer obj=new Integer(145);<br>2.带有字符串参数并创建包装类对象的构造函数.如：new Integer(“-45.36”);<br>3.可生成对象基本值的typeValue方法，如：obj.intValue();<br>4.将字符串转换为基本值的parseType方法，如：Integer.parseInt(args[0]);<br>5.生成哈稀表代码的hashCode方法，如：obj.hasCode();<br>6.对同一个类的两个对象进行比较的equals()方法，如：obj1.eauqls(obj2);<br>7.生成字符串表示法的toString()方法，如：obj.toString().<br></p>
 
-<p></p><h2>二、SAX</h2><p></p>
-<h4>1.SAXTransFormerFactory–&gt;TransformerHandler–&gt;Transformer<br>2.通过Transformer设置编码换行等问题<br>3.通过TransformerHandler设置解析的文件<br>4.通过TransformerHandler的startDocument()方法开始<br>5.创建AttributeImpl对象 设置属性值<br>6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加<br>7.通过TransformerHandler的endDocument() 完成</h4>
+<p></p><h2>什么是拆箱和装箱？</h2><p></p>
+<p><br>JAVA SE5之前是没有自动拆箱装箱的功能，想要生成一个基本的数据类型的包装类对象只能：<br>Integer i=new Integer(10);<br>而在JAVA SE5之后增添了自动拆箱和装箱的功能，想要生成数值为10的Integer对象，只需：<br>Integer i=10;<br>在这个过程中会自动根据数值创建相应的Integer对象，这就是装箱。<br><br>至于拆箱：<br>就是将包装类对象装换成基本的数据类型。<br>Integer i=10;   //装箱<br>int j=i;       //拆箱<br><br>简单来说,装箱就是将基本的数据类型转化成那的包装类对象，而拆箱就是将包装类对象转换成基本的数据类型。<br></p>
 
-<p></p><h2>三、JOM</h2><p></p>
-<h4>1.创建根节点Element.<br>2.创建Document.<br>3.创建子节点Element<br>4.通过addContent方法对子节点的属性和内容进行设置<br>5.调通父节点的addContent方法将子节点插入。<br>6.创建Format对象<br>7.创建XMLOutput对象<br>8.设置XMLOutput对象的Format值<br>9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</h4>
+<p></p><h2>拆箱和装箱是如何实现的？</h2><p></p>
+<p><br>以Integer包装类为例，在装箱的时候会自动调用Integer的valueOf(int)方法,在拆箱的时候自动调用Integer的intValue()方法。<br>总体来说，装箱功能是通过自动调用包装类的valueOf()方法实现的，拆箱功能是通过自动调用包装类的xxxValue()方法实现的。(xxx为数据类型)<br></p>
 
-<p></p><h2>四、DOM4J</h2><p></p>
-<h4>1.创建Document对象<br>2.创建根节点Element 并为根节点设置属性<br>3.通过根节点创建子节点Element 并设置属性和内容<br>4.创建XMLWriter对象通过write()方法将Document传入<br>5.关闭XMLWriter</h4>
+<p></p><h2>装箱和拆箱可能出现的问题</h2><p></p>
+<p><br>知道了装箱功能是通过valueOf()方法实现的之后，我们去阅读一下Integer包装类的valueOf()方法。<br><code><br>        /<strong><br>        <em>valueOf()方法
+        </em>/<br>        public static Integer valueOf(int i) {<br>        if(i &gt;= -128 &amp;&amp; i &lt;= IntegerCache.high)<br>            return IntegerCache.cache[i + 128];<br>        else<br>            return new Integer(i);<br>    }<br>        /</strong><br>        <em>IntegerCache类
+        </em>/<br>        private static class IntegerCache {<br>        static final int high;<br>        static final Integer cache[];<br><br>        static {<br>            final int low = -128;<br><br>            // high value may be configured by property<br>            int h = 127;<br>            if (integerCacheHighPropValue != null) {<br>                // Use Long.decode here to avoid invoking methods that<br>                // require Integer’s autoboxing cache to be initialized<br>                int i = Long.decode(integerCacheHighPropValue).intValue();<br>                i = Math.max(i, 127);<br>                // Maximum array size is Integer.MAX_VALUE<br>                h = Math.min(i, Integer.MAX_VALUE - -low);<br>            }<br>            high = h;<br><br>            cache = new Integer[(high - low) + 1];<br>            int j = low;<br>            for(int k = 0; k &lt; cache.length; k++)<br>                cache[k] = new Integer(j++);<br>        }<br><br>        private IntegerCache() {}<br>    }<br></code><br>由上面的源代码可以看出来，当数值在[-128,127]之间时，便返回已经存在的对象的引用，否则创建一个新的Integer对象。<br>这就是为什么<br>    Integer i=2;<br>    Integer j=2;<br>    System.out.print(i==j);<br>    输入true的原因。<br>再看一下Double包装类的valueOf()方法的源码：<br> <code><br>   /<strong><br>   <em>Double包装类的valueOf()源码
+   </em>/<br>   public static Double valueOf(String s) throws NumberFormatException {<br>        return new Double(parseDouble(s));<br>    }</strong></code><br>    当Double包装类进行装箱的时候不管传入的数字是多少，都会new一个Double包装类的对象。也就是说虽然数值内容相等，然而使用“==”进行比较的时候，还是会返回false，这是因为‘==’比较的是地址。<br><br>接着看一下Boolean包装类的源码：<br><code><br>     public static Boolean valueOf(String s) {<br>        return parseBoolean(s) ? TRUE : FALSE;<br>    }<br></code><br>    TRUE跟FALSE是两个静态属性。<br><code><br>    public static final Boolean TRUE = new Boolean(true);<br><br>    /<br>     <em> The <code>Boolean</code> object corresponding to the primitive 
+     </em> value <code>false</code>.<br>     */<br>    public static final Boolean FALSE = new Boolean(false);<br></code><br>注意，Integer、Short、Byte、Character、Long这几个类的valueOf方法的实现是类似的。Double、Float、String的valueOf方法的实现是类似的。<br><br>谈谈Integer i = new Integer(xxx)和Integer i =xxx;这两种方式的区别。<br><br>　　当然，这个题目属于比较宽泛类型的。但是要点一定要答上，我总结一下主要有以下这两点区别：<br><br>　　1）第一种方式不会触发自动装箱的过程；而第二种方式会触发；<br><br>　　2）在执行效率和资源占用上的区别。第二种方式的执行效率和资源占用在一般性情况下要优于第一种情况（注意这并不是绝对的）。<br><br>注意：<br>当 “==”运算符的两个操作数都是 包装器类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式（即包含算术运算）则比较的是数值（即会触发自动拆箱的过程）。另外，对于包装器类型，equals方法并不会进行类型转换。<br></p>
       
     </div>
 
@@ -405,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/02/XML解析方式/" rel="next" title="XML解析方式">
-                <i class="fa fa-chevron-left"></i> XML解析方式
+              <a href="/2017/09/11/Java反射机制/" rel="next" title="Java反射机制">
+                <i class="fa fa-chevron-left"></i> Java反射机制
               </a>
             
           </div>
@@ -414,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/mysql学习总结-1/" rel="prev" title="mysql学习总结[1]">
-                mysql学习总结[1] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">一、DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用DOM生成XML文件的方法前几步与解析XML文件是相同的。1.DocumentBuilderFactory–>DocumentBuilder–>Document2.创建各种节点Element 并为其设置属性(setAttribute())以及设置内容(setTextContent())3.通过父节点的appendChild方法将子节点插入4.通过Document的appendChild()方法将根节点插入。5.TransformerFactory–>Transformer6.通过Transformer的setOutputProperty()方法设置编码跟换行问题7.创建DOMSource对象与document关联起来8.创建StreamResult对象设置输出流输出的XML文件位置9.通过Transformer的transform()方法进行生成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">二、SAX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.SAXTransFormerFactory–>TransformerHandler–>Transformer2.通过Transformer设置编码换行等问题3.通过TransformerHandler设置解析的文件4.通过TransformerHandler的startDocument()方法开始5.创建AttributeImpl对象 设置属性值6.通过TransformerHandler 按照事件驱动的方式按顺序进行节点的创建以及属性内容的添加7.通过TransformerHandler的endDocument() 完成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">三、JOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.创建根节点Element.2.创建Document.3.创建子节点Element4.通过addContent方法对子节点的属性和内容进行设置5.调通父节点的addContent方法将子节点插入。6.创建Format对象7.创建XMLOutput对象8.设置XMLOutput对象的Format值9.调用XMLOutput的output()方法跟Document进行关联并输出生成的XML文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">四、DOM4J</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.创建Document对象2.创建根节点Element 并为根节点设置属性3.通过根节点创建子节点Element 并设置属性和内容4.创建XMLWriter对象通过write()方法将Document传入5.关闭XMLWriter</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Java的包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">什么是拆箱和装箱？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">拆箱和装箱是如何实现的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">装箱和拆箱可能出现的问题</span></a></li></ol></div>
             
 
           </div>
