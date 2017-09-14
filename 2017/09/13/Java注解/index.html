@@ -96,7 +96,7 @@
 <meta property="og:url" content="edsonJiao.github.io/2017/09/13/Java注解/index.html">
 <meta property="og:site_name" content="edsonJiao&#39;s Blog">
 <meta property="og:description" content="不会写注解的程序员不是真正的程序员，不会写自定义注解的程序员不是好的程序员。">
-<meta property="og:updated_time" content="2017-09-13T06:54:08.809Z">
+<meta property="og:updated_time" content="2017-09-13T23:41:12.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解">
 <meta name="twitter:description" content="不会写注解的程序员不是真正的程序员，不会写自定义注解的程序员不是好的程序员。">
@@ -360,7 +360,7 @@
       
         <p>不会写注解的程序员不是真正的程序员，不会写自定义注解的程序员不是好的程序员。<br><a id="more"></a></p>
 <p></p><h2>Java中常见的注解</h2><p></p>
-<p><br>@Override 表示当前方法覆盖了父类的方法  属于编译注解<br><br>@Deprecation 表示方法已经过时,方法上有横线，使用时会有警告。  属于编译注解<br><br>@SuppviseWarnings(“deprecation”) 表示关闭一些警告信息(通知java编译器忽略特定的编译警告)  属于编译注解<br></p><br><h2>注解的分类</h2><br><p><br>按运行机制分：源码注解、编译注解、运行注解<br>源码注解：注解只在源码中存在，当编译成.class文件时注解就不存在了<br>编译注解：在源码跟.class文件中都存在。<br>运行注解：在运行时还会存在，甚至会影响到运行的逻辑。<br><br>按照来源分：<br>JDK注解、自己定义的注解、第三方注解<br></p>
+<p><br>@Override 表示当前方法覆盖了父类的方法  属于编译注解<br><br>@Deprecated 表示方法已经过时,方法上有横线，使用时会有警告。  属于编译注解<br><br>@SuppviseWarnings(“deprecation”) 表示关闭一些警告信息(通知java编译器忽略特定的编译警告)  属于编译注解<br></p><br><h2>注解的分类</h2><br><p><br>按运行机制分：源码注解、编译注解、运行注解<br>源码注解：注解只在源码中存在，当编译成.class文件时注解就不存在了<br>编译注解：在源码跟.class文件中都存在。<br>运行注解：在运行时还会存在，甚至会影响到运行的逻辑。<br><br>按照来源分：<br>JDK注解、自己定义的注解、第三方注解<br></p>
 
 <p></p><h2>元注解–注解的注解</h2><p></p>
 <p><br>@Target()  //作用域<br>1.CONSTRUCTOR 构造方法声明 2.FIELD 字段声明 3.LOCAL_VARIABLE 局部变量声明 4.METHOD 方法声明 5.PACKAGE 包声明 6.PARAMETER 参数声明 7.TYPE类接口<br><br>@Retention()  //生命周期<br>1.SOURCE 只在源码时显示，编译时会丢失。2.CLASS 编译时会记录到.class文件中，运行时丢失。3.RUNTIME 运行时存在，可以通过反射读取。<br><br>@Inherited  //允许子类继承<br><br>@Document  生成javadoc时会包含注解<br>自定义注解：<br>使用@interface进行自定义注解<br>public @interface Description{<br>    String desc();  //成员以无参无异常的方式声明。<br>    String author();<br>    int age() default 18; //可以用default为成员指定一个默认值<br>}<br>成员的类型是受限制的，合法的类型包括原始类型及String，Class，Annotation，Enumeration<br>如果注解只有一个成员，则成员只能起名为value(),在使用时可以忽略成员名和赋值号（=）。<br>注解类可以没有成员，没有成员的注解类成为标识注解<br><br><strong>使用注解的方法：<br>@&lt;注解名&gt;(&lt;成员名1&gt;=&lt;成员值1&gt;，&lt;成员名1&gt;=&lt;成员值1&gt;,…)</strong><br></p><br><h2>解析注解</h2><br><p><br>概念：通过反射获取类、函数或成员上的运行时注解信息，从而实现动态控制程序运行的逻辑。<br><br>方法：<br>1.先获取到类的类类型。<br>2.通过类的类类型的isAnnotationPresen(注解名.class)方法判断类上是否存在该注解，返回值为boolean类型。<br>3.若返回值为true，则通过类类型的getAnnotation(注解名.class)获取注解实例，返回值为注解类型。需要强制类型转换。通过value()方法可以获得注解的名称<br>4.获取方法的注解与获取类的注解类似，先通过类类型的getMethod()方法获得一个Method类型的数组，然后回到1,2步骤。也可以通过Method对象的getAnnotations()方法获取到方法的所有注解，将其放入到一个Annotation类型的数组中，然后在进行遍历。<br><br><strong>注解的继承问题：若在父类的接口中存在注解，而在子类进行实现的时候注解是不存在的。在类中，若父类存在注解，注解在子类中也是存在的，若子类重写了父类的方法，则在子类中被重写的方法不存在父类的注释。</strong><br></p>
@@ -408,6 +408,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/14/浅谈Hibernate框架/" rel="prev" title="浅谈Hibernate框架">
+                浅谈Hibernate框架 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -479,7 +483,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
